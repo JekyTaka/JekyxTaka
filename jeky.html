@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jekyy Guantenv Bnagekg</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      min-width: 320px;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      min-height: 100vh;
+      background: url('https://img1.pixhost.to/images/7336/623720317_jekyy.jpg') center center / cover no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+    }
+    .section {
+      background: rgba(0,0,0,0.75);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .button, .option-btn, .back-btn {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 12px;
+      margin: 8px auto;
+      width: 90%;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: block;
+      animation: fadeInLeft 0.5s ease;
+    }
+    .button:hover, .option-btn:hover, .back-btn:hover {
+      background: linear-gradient(135deg, #00ff88, #0072ff);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffcc;
+    }
+    .zigzag:nth-child(even) { animation-name: fadeInRight; transform: scale(0.95); }
+    .zigzag:nth-child(odd) { animation-name: fadeInLeft; transform: scale(1); }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .social-icons a {
+      font-size: 24px;
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #00c6ff;
+      transform: scale(1.2);
+    }
+    .info-text {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: left;
+    }
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    .menu-buttons.hidden { display: none; }
+    .qris img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 2px solid white;
+    }
+    footer {
+      text-align: center;
+      color: #010101;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="menu-buttons" id="mainMenu">
+      <button class="button" onclick="toggleSection('shop')">🛒 Shop</button>
+      <button class="button" onclick="toggleSection('sosial')">🌐 Sosial</button>
+      <button class="button" onclick="toggleSection('groupwa')">👥 Grup WhatsApp</button>
+      <button class="button" onclick="toggleSection('payment')">💳 Payment</button>
+    </div>
+
+    <div class="section" id="shop">
+      <h2>Store Jekyy</h2>
+      <div id="storeMenu">
+        <button class="option-btn" onclick="toggleStore('bot')">Sewa Bot</button>
+        <button class="option-btn" onclick="toggleStore('panel')">Panel</button>
+      </div>
+      <div id="storeOptions"></div>
+      <div id="premiumOptions"></div>
+      <div id="result"></div>
+      <div id="waLink"></div>
+      <div class="info-text" id="infoText"></div>
+      <button class="back-btn" onclick="goBack()">🔙 Kembali</button>
+    </div>
+
+    <div class="section" id="sosial">
+      <h2>Ikuti Sosial Media</h2>
+      <div class="social-icons">
+        <a href="https://wa.me/6283844570971" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://tiktok.com/@jeky_takanashi" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://instagram.com/jeky_takanashi" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/JekyTakanashi" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+      <button class="back-btn" onclick="goBack()">🔙 Kembali</button>
+    </div>
+
+    <div class="section" id="groupwa">
+      <h2>Grup WhatsApp</h2>
+      <a href="https://chat.whatsapp.com/H9OCPgJAdEMFop3hgNzmT9?mode=r_c" target="_blank" class="button">TAKANASHI HOSHINO MULTI DEVICE</a>
+      <a href="https://chat.whatsapp.com/DamvfxdeMByK5DD0HZZSjL?mode=r_t" target="_blank" class="button">Group yapping</a>
+      <a href="https://whatsapp.com/channel/0029VbAJ0C14o7qMn6dR9h2X" target="_blank" class="button">CH Jeky Takanashi</a>
+      <button class="back-btn" onclick="goBack()">🔙 Kembali</button>
+    </div>
+
+    <div class="section" id="payment">
+      <h2>Metode Pembayaran</h2>
+      <button class="option-btn" onclick="copyToClipboard('6281584717340')">💰 Dana</button>
+      <button class="option-btn" onclick="copyToClipboard('6281584717340')">📱 Gopay</button>
+      <button class="option-btn" onclick="copyToClipboard('6283844570971')">📲 OVO</button>
+      <button class="option-btn" onclick="copyToClipboard('6283844570971')">🛒 ShopeePay</button>
+      <h3>🧾 METODE QRIS</h3>
+      <div class="qris">
+        <img src="https://img1.pixhost.to/images/7315/623329504_jekyy.jpg" alt="QRIS Jekyy">
+      </div>
+      <button class="back-btn" onclick="goBack()">🔙 Kembali</button>
+    </div>
+
+    <script>
+      let botToggle = 0;
+      let panelToggle = 0;
+
+      function clearStoreUI() {
+        document.getElementById('storeOptions').innerHTML = '';
+        document.getElementById('premiumOptions').innerHTML = '';
+        document.getElementById('result').innerHTML = '';
+        document.getElementById('waLink').innerHTML = '';
+        document.getElementById('infoText').innerHTML = '';
+      }
+
+      function toggleSection(id) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.getElementById('mainMenu').classList.add('hidden');
+        clearStoreUI();
+      }
+
+      function goBack() {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById('mainMenu').classList.remove('hidden');
+        clearStoreUI();
+        botToggle = 0;
+        panelToggle = 0;
+      }
+
+      function toggleStore(type) {
+        clearStoreUI();
+        if (type === 'bot') {
+          botToggle++;
+          panelToggle = 0;
+          if (botToggle % 2 === 1) {
+            document.getElementById('storeOptions').innerHTML = '<p>Mau sewa bot berapa hari?</p>' + [
+              '1minggu', '1bulan', '3bulan', '5bulan', '7bulan', '9bulan', '1tahun', '2tahun'
+            ].map((d, i) => `<button class='option-btn zigzag' onclick="chooseSewa('${d}')">${d}</button>`).join('');
+          }
+        } else if (type === 'panel') {
+          panelToggle++;
+          botToggle = 0;
+          if (panelToggle % 2 === 1) {
+            document.getElementById('infoText').innerText = `Server private & kualitas terbaik!\n• Script bot dijamin aman (anti drama/maling)\n• Garansi 10 hari (1x replace)\n• Server anti delay/lemot!\n• Claim garansi wajib bawa bukti transaksi`;
+            document.getElementById('storeOptions').innerHTML = [1,2,3,4,5,6,7,8,9,10].map(r => `<button class='option-btn zigzag' onclick="showPrice('Panel RAM ${r} GB','${r*1000}')">RAM ${r} GB</button>`).join('') + `<button class='option-btn zigzag' onclick="showPrice('Panel RAM Unlimited','12000')">RAM Unlimited</button>`;
+          }
+        }
+      }
+
+      function chooseSewa(duration) {
+        const hargaTrial = {
+          '1minggu': 3000, '1bulan': 7000, '3bulan': 21000,
+          '5bulan': 35000, '7bulan': 50000, '9bulan': 65000,
+          '1tahun': 85000, '2tahun': 170000
+        };
+        const hargaPrem = {
+          '1minggu': 5000, '1bulan': 12000, '3bulan': 30000,
+          '5bulan': 50000, '7bulan': 60000, '9bulan': 75000,
+          '1tahun': 100000, '2tahun': 180000
+        };
+        document.getElementById('storeOptions').innerHTML = `<p>Pilih mau premium atau trial:</p>
+          <button class='option-btn' onclick="showPrice('Trial ${duration}','${hargaTrial[duration]}')">Trial ${duration} ${hargaTrial[duration].toLocaleString()} IDR</button>
+          <button class='option-btn' onclick="showPrice('Premium ${duration}','${hargaPrem[duration]}')">Premium ${duration} ${hargaPrem[duration].toLocaleString()} IDR</button>`;
+      }
+
+      function showPrice(name, price) {
+        document.getElementById('result').innerText = `${name} - Rp${price}`;
+        document.getElementById('waLink').innerHTML = `<a href="https://wa.me/6283844570971?text=Saya ingin: ${name} - Rp${price}" class="button" target="_blank">Chat WhatsApp</a>`;
+      }
+
+      function copyToClipboard(text) {
+        const temp = document.createElement('input');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        alert(`✅ Disalin: ${text}`);
+      }
+    </script>
+    <footer>© 2025 It's me Jeky</footer>
+</body>
+</html>
